@@ -470,7 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Convert to screen angle: 90 input means straight up (270 in standard math, but we need to rotate around player)
         // 0 input means right (0 in standard math)
         // 180 input means left (180 in standard math)
-        const angleInRadians = degreesToRadians(180 - gameState.playerInputAngle); // Adjust for screen Y-axis (up is negative)
+        const angleInRadians = degreesToRadians(gameState.playerInputAngle); // Adjust for screen Y-axis (up is negative)
 
         // A fixed visual length for the guide line
         const guideLineLength = 200;
@@ -532,7 +532,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showKickOutcomeText('MISS!', 'var(--opponent-red)');
 
             // Calculate miss target position based on input angle
-            const angleInRadians = degreesToRadians(180 - gameState.playerInputAngle); // Adjust for screen Y-axis
+            const angleInRadians = degreesToRadians(gameState.playerInputAngle); // Adjust for screen Y-axis
             const missDistance = 200; // Fixed distance for a missed pass
 
             let missTargetX = playerPos.x + missDistance * Math.cos(angleInRadians);
